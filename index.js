@@ -1,4 +1,4 @@
-import Books from './modules/Books.js';
+import Books from './modules/Books';
 
 const displayBook = document.querySelector('.display-books');
 const form = document.querySelector('form');
@@ -7,14 +7,11 @@ const form = document.querySelector('form');
 const listBooks = new Books();
 function onPageReload() {
   displayBook.innerHTML = listBooks.books
-    .map(
-      (book, index) => `
+    .map((book) => (
   <div class='display'>
     <p>'${book.title}' by ${book.author}</p>
-    <button class='remove-btn' onclick='removeBook(${ `index` }>Remove</button>
-    </div>'
-  )
-    .join('');
+    <button id='btn' class='remove-btn'>Remove</button>
+    </div>)).join('');
 
   if (listBooks.books.length === 0) {
     displayBook.style.cssText = 'border: none;';
@@ -37,11 +34,12 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-/* eslint-disable no-unused-vars */
+const btn = document.getElementById('btn');
 const removeBook = (bookId) => {
   listBooks.removeBook(bookId);
   onPageReload();
 };
-/* eslint-disable no-unused-vars */
+
+btn.addEventListener('click', removeBook);
 onPageReload();
 document.querySelector('span').innerHTML = new Date();

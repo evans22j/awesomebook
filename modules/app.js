@@ -11,3 +11,5 @@ function makeActive(className) {
     }
   });
 }
+
+makeActive();
