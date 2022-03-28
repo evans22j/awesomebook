@@ -5,7 +5,7 @@ const form = document.querySelector('form');
 
 // create an object
 const listBooks = new Books();
-function onPageReload() {
+const onPageReload = () => {
   displayBook.innerHTML = listBooks.books
     .map((book) => (
   <div class='display'>
@@ -18,7 +18,7 @@ function onPageReload() {
   } else {
     displayBook.style.cssText = 'border: 3px solid black;';
   }
-}
+};
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();

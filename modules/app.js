@@ -1,7 +1,7 @@
 const section = document.querySelectorAll('.section');
 const addNew = document.querySelector('.list-books');
 
-function makeActive(className) {
+const makeActive = (className) => {
   section.forEach((item) => {
     if (item.classList.contains(className)) {
       item.classList.add('show');
@@ -10,6 +10,6 @@ function makeActive(className) {
       item.classList.remove('show');
     }
   });
-}
+};
 
 makeActive();
