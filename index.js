@@ -40,11 +40,6 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-// const btn = document.querySelector(".display");
-// const removeBook = (bookId) => {
-//   listBooks.removeBook(bookId);
-//   onPageReload();
-// };
 
 displayBook.addEventListener('click', (e) => {
   if (e.target.className === 'remove-btn') {
