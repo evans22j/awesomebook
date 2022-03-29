@@ -40,7 +40,6 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
-
 displayBook.addEventListener('click', (e) => {
   if (e.target.className === 'remove-btn') {
     listBooks.removeBook(e);
