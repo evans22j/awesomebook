@@ -1,19 +1,19 @@
-const displayBook = document.querySelector(".display-books");
-const form = document.querySelector("form");
+const displayBook = document.querySelector('.display-books');
+const form = document.querySelector('form');
 
 class Books {
   constructor() {
-    if (localStorage.getItem("books") === null) {
+    if (localStorage.getItem('books') === null) {
       this.books = [];
     } else {
-      this.books = JSON.parse(localStorage.getItem("books"));
+      this.books = JSON.parse(localStorage.getItem('books'));
     }
   }
 
   // add book methods
   addBook(book) {
     this.books.push(book);
-    localStorage.setItem("books", JSON.stringify(this.books));
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   // remove book methods
@@ -24,7 +24,7 @@ class Books {
       }
       return undefined;
     });
-    localStorage.setItem("books", JSON.stringify(this.books));
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 }
 
@@ -38,22 +38,22 @@ const onPageReload = () => {
     <p>"${book.title}" by ${book.author}</p>
     <button class="remove-btn" onclick="removeBook(${index})">Remove</button>
     </div>
-  `
+  `,
     )
-    .join("");
+    .join('');
 
   if (listBooks.books.length === 0) {
-    displayBook.style.cssText = "border: none;";
+    displayBook.style.cssText = 'border: none;';
   } else {
-    displayBook.style.cssText = "border: 3px solid black;";
+    displayBook.style.cssText = 'border: 3px solid black;';
   }
 };
 
-form.addEventListener("submit", (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   const formData = new FormData(form);
-  const title = formData.get("title");
-  const author = formData.get("author");
+  const title = formData.get('title');
+  const author = formData.get('author');
   const bookObj = {
     title,
     author,
@@ -71,18 +71,18 @@ const removeBook = (bookId) => {
 /* eslint-disable no-unused-vars */
 onPageReload();
 
-document.querySelector("span").innerHTML = new Date();
+document.querySelector('span').innerHTML = new Date();
 
-const section = document.querySelectorAll(".section");
-const addNew = document.querySelector(".list-books");
+const section = document.querySelectorAll('.section');
+const addNew = document.querySelector('.list-books');
 
 const makeActive = (className) => {
   section.forEach((item) => {
     if (item.classList.contains(className)) {
-      item.classList.add("show");
-      addNew.classList.toggle("show");
+      item.classList.add('show');
+      addNew.classList.toggle('show');
     } else {
-      item.classList.remove("show");
+      item.classList.remove('show');
     }
   });
-}
+};
